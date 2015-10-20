@@ -24,20 +24,20 @@ package
 		private var btn2:Button = new Button();
 		private var btn3:Button = new Button();
 		
-		private var inputElectricityPrevious     :CustomTextField; //теперь это объект класса CustomTextField, а не TextField
-		private var inputElectricityCurrent      :TextField;
-		private var outputElectricityCost        :TextField;
-		private var outputElectricityDifference  :TextField;
-		private var inputWaterPrevious           :TextField;
-		private var inputWaterCurrent            :TextField;
-		private var outputWaterCost              :TextField;
-		private var outputWaterDifference        :TextField;
-		private var inputGasPrevious             :TextField;
-		private var inputGasCurrent              :TextField;
-		private var outputGasCost                :TextField;
-		private var outputGasDifference          :TextField;
-		private var outputTotalSum               :TextField;
-		private var testField                    :TextField;
+		private var inputElectricityPrevious     :CustomTextField; //теперь это объект класса CustomTextField, а не TextField, и для них можно использовать методы этого класса
+		private var inputElectricityCurrent      :CustomTextField; //объявлены ы этой части кода, чтобы различные функции имели доступ к ним
+		private var outputElectricityCost        :CustomTextField;
+		private var outputElectricityDifference  :CustomTextField;
+		private var inputWaterPrevious           :CustomTextField;
+		private var inputWaterCurrent            :CustomTextField;
+		private var outputWaterCost              :CustomTextField;
+		private var outputWaterDifference        :CustomTextField;
+		private var inputGasPrevious             :CustomTextField;
+		private var inputGasCurrent              :CustomTextField;
+		private var outputGasCost                :CustomTextField;
+		private var outputGasDifference          :CustomTextField;
+		private var outputTotalSum               :CustomTextField;
+		private var testField                    :CustomTextField;
 		
 		private var inputEl1:Number;
 		
@@ -49,7 +49,9 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-			inputElectricityPrevious = new CustomTextField(x1, y1, 50, 30, TextFieldType.INPUT); //new TextField();
+		
+			
+			/*inputElectricityPrevious = new CustomTextField(x1, y1, 50, 30, TextFieldType.INPUT); //new TextField();// старый код
 			inputElectricityCurrent = KustomTextField.createKustomTF(x2, y1, 50, 30, TextFieldType.INPUT);
 			outputElectricityCost = KustomTextField.createKustomTF(x4, y1, 40, 30, TextFieldType.DYNAMIC);
 			outputElectricityDifference = KustomTextField.createKustomTF(x5, y1, 40, 30, TextFieldType.DYNAMIC);
@@ -62,14 +64,29 @@ package
 			outputGasCost = KustomTextField.createKustomTF(x4, y3, 40, 30, TextFieldType.DYNAMIC);
 			outputGasDifference = KustomTextField.createKustomTF(x5, y3, 40, 30, TextFieldType.DYNAMIC);
 			outputTotalSum = KustomTextField.createKustomTF(x5 - 10, y3 + 40, 50, 30, TextFieldType.DYNAMIC);
-			testField = KustomTextField.createKustomTF(x5 - 10, y3 + 80, 50, 30, TextFieldType.DYNAMIC);
+			testField = KustomTextField.createKustomTF(x5 - 10, y3 + 80, 50, 30, TextFieldType.DYNAMIC);*/
 			
-			inputElectricityPrevious.text = '123.456789';
+			/*inputElectricityPrevious.text = '123.456789';
 			trace(inputElectricityPrevious.numericValue);//получаем значение через getter
 			trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
-			var someValue:Number = inputElectricityPrevious.numericValue
+			var someValue:Number = inputElectricityPrevious.numericValue*/
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			inputElectricityPrevious = new CustomTextField(x1, y1, 50, 30, TextFieldType.INPUT); //new TextField();
+			inputElectricityCurrent = new CustomTextField(x2, y1, 50, 30, TextFieldType.INPUT);
+			outputElectricityCost = new CustomTextField(x5, y1, 40, 30, TextFieldType.DYNAMIC);
+			outputElectricityDifference = new CustomTextField(x4, y1, 40, 30, TextFieldType.DYNAMIC);
+			inputWaterPrevious = new CustomTextField(x1, y2, 50, 30, TextFieldType.INPUT);
+			inputWaterCurrent = new CustomTextField(x2, y2, 50, 30, TextFieldType.INPUT);
+			outputWaterCost = new CustomTextField(x5, y2, 40, 30, TextFieldType.DYNAMIC);
+			outputWaterDifference = new CustomTextField(x4, y2, 40, 30, TextFieldType.DYNAMIC);
+			inputGasPrevious = new CustomTextField(x1, y3, 50, 30, TextFieldType.INPUT);
+			inputGasCurrent = new CustomTextField(x2, y3, 50, 30, TextFieldType.INPUT);
+			outputGasCost = new CustomTextField(x5, y3, 40, 30, TextFieldType.DYNAMIC);
+			outputGasDifference = new CustomTextField(x4, y3, 40, 30, TextFieldType.DYNAMIC);
+			outputTotalSum = new CustomTextField(x5 - 10, y3 + 40, 50, 30, TextFieldType.DYNAMIC);
+			testField = new CustomTextField(x5 - 10, y3 + 80, 50, 30, TextFieldType.DYNAMIC);
 			
 			addChild(inputElectricityPrevious);			
 			addChild(inputElectricityCurrent);	
@@ -113,12 +130,13 @@ package
 		private function calculateElectricity(event:MouseEvent):void
 		{
 			var result:Number;
-			var a:Number = Number(inputElectricityPrevious.text);
-			var b:Number = Number(inputElectricityCurrent.text);
-			var difference:Number = Number(b - a);
-			var LOWPRICE:Number = .366;
-			var MIDPRICE:Number = .63
-			var LIMIT:Number = 100
+			var a:Number = inputElectricityPrevious.numericValue;
+			var b:Number = inputElectricityCurrent.numericValue;
+			var difference:Number = (b - a);
+			var LOWPRICE:Number = .456;
+			var MIDPRICE:Number = .789;
+			var HIPRICE:Number = 1.479;
+			var LIMIT:Number = 100;
 			
 			if (difference > LIMIT)
 			{
