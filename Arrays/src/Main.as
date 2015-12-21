@@ -58,10 +58,14 @@ package
 			var row1:Array = [6, 2.99];
 			var row2:Array = [4, 9.99];
 			var row3:Array = [1, 59.99];
+			var totalAmount:Number = 0;
 			var spreadshit:Array = [row1, row2, row3];
-			trace(spreadshit[0][0]);
-			for (var k:Number = 0;
-			
+			trace(spreadshit.length);
+			for (var k:int = 0; k < spreadshit.length; k++) {
+				totalAmount += spreadshit[i][0] * spreadshit[i][1];
+			}
+			trace(spreadshit[0]);
+			trace(totalAmount);
 			
 		}
 		
