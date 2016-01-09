@@ -64,9 +64,9 @@ package
 			outputTotalSum = KustomTextField.createKustomTF(x5 - 10, y3 + 40, 50, 30, TextFieldType.DYNAMIC);
 			testField = KustomTextField.createKustomTF(x5 - 10, y3 + 80, 50, 30, TextFieldType.DYNAMIC);
 			
-			inputElectricityPrevious.text = '123.456789';
-			trace(inputElectricityPrevious.numericValue);//получаем значение через getter
-			trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
+			//inputElectricityPrevious.text = '123.456789';
+			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
+			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
 			var someValue:Number = inputElectricityPrevious.numericValue
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
@@ -116,8 +116,8 @@ package
 			var a:Number = Number(inputElectricityPrevious.text);
 			var b:Number = Number(inputElectricityCurrent.text);
 			var difference:Number = Number(b - a);
-			var LOWPRICE:Number = .366;
-			var MIDPRICE:Number = .63
+			var LOWPRICE:Number = .456;
+			var MIDPRICE:Number = .789
 			var LIMIT:Number = 100
 			
 			if (difference > LIMIT)
