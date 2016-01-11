@@ -21,7 +21,7 @@ package text
 			backgroundColor = 0xFAD4DB;
 		}
 		
-		public function get numericValue():Number// используем getter для того чтобы получить значение
+		public function get numericValue():Number// РёСЃРїРѕР»СЊР·СѓРµРј getter РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ Р·РЅР°С‡РµРЅРёРµ
 		{
 			return Math.ceil(Number(text) * 100) / 100;
 		}
