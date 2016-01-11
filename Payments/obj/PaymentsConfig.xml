@@ -16,7 +16,11 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
+<<<<<<< HEAD
       <value>'09.01.2016'</value>
+=======
+      <value>'10/15/2015'</value>
+>>>>>>> origin/master
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,12 +36,20 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
+<<<<<<< HEAD
       <path-element>D:\projects\TaxPayments\Payments\src</path-element>
+=======
+      <path-element>D:\projects\ActionScript\git\Payments\src</path-element>
+>>>>>>> origin/master
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
+<<<<<<< HEAD
     <path-element>D:\projects\TaxPayments\Payments\src\Main.as</path-element>
+=======
+    <path-element>D:\projects\ActionScript\git\Payments\src\Main.as</path-element>
+>>>>>>> origin/master
   </file-specs>
   <default-background-color>#8080C0</default-background-color>
   <default-frame-rate>30</default-frame-rate>
