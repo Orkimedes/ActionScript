@@ -151,7 +151,7 @@ package
 			var LOWPRICE:Number = .456;
 			var MIDPRICE:Number = .789;
 			var HIPRICE:Number = 1.479;
-			var LIMIT:Number = 100;
+			var LIMIT:Number = 150;
 >>>>>>> origin/master
 			
 			if (difference > LIMIT)
