@@ -24,6 +24,7 @@ package
             childView.y = 120;
             parentView.addChild(childView);
             childView.addEventListener(MouseEvent.CLICK, childClickHandler);
+			childView.addEventListener(MouseEvent.CLICK, childClickHandler02);
             //
         }
         
@@ -35,7 +36,12 @@ package
         private function childClickHandler(event:MouseEvent):void
         {
             trace('childClickHandler');
-            event.stopPropagation();
+            event.stopImmediatePropagation();
         }
+		
+		private function childClickHandler02(event:MouseEvent):void
+		{
+			trace('childClickHandler02');
+		}
     }
 }
