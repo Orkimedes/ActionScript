@@ -16,6 +16,7 @@
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="src" />
+    <class path="lib" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -55,6 +56,7 @@
     <element path="swc\fl_ui.swc" />
     <element path="swc\FPColor.swc" />
     <element path="sounds" />
+    <element path="lib" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -71,6 +73,7 @@
   <!-- Assets to embed into the output SWF -->
   <library>
     <asset path="sounds\danger.mp3" />
+    <asset path="lib\danger.mp3" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

@@ -13,7 +13,7 @@ package
 	 
 	public class Game extends Sprite 
 	{
-	[Embed(source = "sounds/danger.mp3")]
+	[Embed(source = "../lib/sounds/danger.mp3")]
 		private var DangerousSound:Class;
 		//
 		private var sound:Sound;
