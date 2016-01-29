@@ -7,10 +7,14 @@ package
 	 */
 	public class AppTimerEvent extends Event
 	{
-		
-		public function AppTimerEvent() 
+		public static const TICK:String = 'appTimerTick';
+		public static const COMPLETE:String = 'appTimerComplete';
+		public var remained:Number;
+		public var danger:Boolean;
+		//
+		public function AppTimerEvent(type:String) 
 		{
-			
+			super(type);
 		}
 		
 	}
