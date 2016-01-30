@@ -23,8 +23,10 @@ package
 			this.addChild(timerTextField);
 			//
 			systemTimer = new Timer(1000);
-			systemTimer.addEventListener(TimerEvent.TIMER,
+			systemTimer.addEventListener(TimerEvent.TIMER, tickHandler);
+			systemTimer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
 		}
+		
 		
 	}
 
