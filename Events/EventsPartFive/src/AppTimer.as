@@ -5,6 +5,7 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
+	import ru.flashpress.color.FPColorConversion;
 	/**
 	 * ...
 	 * @author Nikk
@@ -27,7 +28,24 @@ package
 			systemTimer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
 		}
 		
-		
+		private function showTime():void
+		{
+			timerTextField.text = 'осталось: ' + remainedTime;
+			var remainedPercent:Number = remainedTime / maxTime;
+			//определяем цвет таймера - если осталось > 50% то черный, если нет - красный
+			if (remainedPercent < 0.5)
+			{
+				var percent:Number = remainedPercent / 0.5;
+				var Red:Number = 255 * (1 - percent);
+				var rgb:FPColorConversion.CreateHSBWithChanels(Red, 0, 0);
+				timerTextField.textColor = rgb.Color;
+			}
+			else {
+				timerTextField.textColor = 0x0;
+			}
+			
+			
+		}
 	}
 
 }
