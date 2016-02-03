@@ -6,6 +6,7 @@ package
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
 	import ru.flashpress.color.FPColorConversion;
+	import ru.flashpress.color.FPColorRGBa;
 	/**
 	 * ...
 	 * @author Nikk
@@ -37,15 +38,52 @@ package
 			{
 				var percent:Number = remainedPercent / 0.5;
 				var Red:Number = 255 * (1 - percent);
-				var rgb:FPColorConversion.CreateHSBWithChanels(Red, 0, 0);
+				var rgb:FPColorRGBa = FPColorConversion.CreateHSBWithChanels(red, 0, 0);
 				timerTextField.textColor = rgb.Color;
 			}
 			else {
 				timerTextField.textColor = 0x0;
 			}
 			
-			
+			//создаем объект события
+			var event:AppTimerEvent = new AppTimerEvent(AppTimerEvent.TICK);
+			//задаем параметры
+			event.remainedTime = remained;//оставшееся время
+			event.danger = remainedPercent < 0.5;//показатель того, что цвет нужно изменить
+			this.dispatchEvent(event);
 		}
+		//обработчик события тиканья системного таймера
+		private function tickHandler(event:TimerEvent):void
+		{
+			remained--;
+			//вызов метода, который покажет оставшееся время
+			showTime();
+		}
+		//обработчик события окончания системного таймера
+		private function completeHandler(event:TimerEvent):void
+		{
+			//создаем событие AppTimerEvent.COMPLETE
+			this.dispatchEvent(new AppTimerEvent(AppTimerEvent.COMPLETE));
+		}
+		
+		//максимальное и оставшееся время таймера
+		private var maxTime:int;
+		private var remained:int;
+		
+		//старт таймера
+		public function Start(maxTime:int):void
+		{
+			this.maxTime = maxTime;
+			//задаем оставшееся время как максимальное на данный момент
+			this.remained = maxTime;
+			//показываем время в textField;
+			showTime();
+			//задаем системному таймеру количество повторов
+			systemTimer.repeatCount = maxTime;
+			systemTimer.reset();//обновляем
+			systemTimer.start();//стартуем
+		}
+		
 	}
 
 }

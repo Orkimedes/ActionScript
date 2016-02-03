@@ -5,6 +5,7 @@ package
 	 * ...
 	 * @author Nikk
 	 */
+	//создаем собственное событие
 	public class AppTimerEvent extends Event
 	{
 		public static const TICK:String = 'appTimerTick';

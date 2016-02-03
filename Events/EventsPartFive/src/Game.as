@@ -41,8 +41,32 @@ package
 			addChild(start);
 			//
 			timer = new AppTimer();
+			//слушаем тиканье таймер
+			timer.addEventListener(AppTimerEvent.TICK, timerTickHandler);
+			//слушаем окончание работы таймера
+			timer.addEventListener(AppTimerEvent.COMPLETE, timerCompleteHandler);
+			timer.x = 180;
+			timer.y = 40;
+			this.addChild(timer);
+		}
+		//обработчик нажатия на кнопку start
+		
+		private function startHandler(event:MouseEvent):void
+		{
+			timer.Start(20);
+			start.enabled = false;
+		}
+		private function timerTickHandler(event:AppTimerEvent):void
+		{
+			if (event.danger)
+			{
+				sound.play(0, 0);
+			}
 			
-			
+		}
+		private function timerCompleteHandler(event:AppTimerEvent):void
+		{
+			start.enabled = true;
 		}
 	}
 	
