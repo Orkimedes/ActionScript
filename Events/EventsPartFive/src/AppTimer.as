@@ -38,7 +38,7 @@ package
 			{
 				var percent:Number = remainedPercent / 0.5;
 				var Red:Number = 255 * (1 - percent);
-				var rgb:FPColorRGBa = FPColorConversion.CreateHSBWithChanels(red, 0, 0);
+				var rgb:FPColorRGBa = FPColorConversion.CreateRGBaWithChanels(Red, 0, 0);
 				timerTextField.textColor = rgb.Color;
 			}
 			else {
@@ -48,14 +48,14 @@ package
 			//создаем объект события
 			var event:AppTimerEvent = new AppTimerEvent(AppTimerEvent.TICK);
 			//задаем параметры
-			event.remainedTime = remained;//оставшееся время
+			event.remainedTime = remainedTime;//оставшееся время
 			event.danger = remainedPercent < 0.5;//показатель того, что цвет нужно изменить
 			this.dispatchEvent(event);
 		}
 		//обработчик события тиканья системного таймера
 		private function tickHandler(event:TimerEvent):void
 		{
-			remained--;
+			remainedTime--;
 			//вызов метода, который покажет оставшееся время
 			showTime();
 		}
@@ -68,14 +68,14 @@ package
 		
 		//максимальное и оставшееся время таймера
 		private var maxTime:int;
-		private var remained:int;
+		private var remainedTime:int;
 		
 		//старт таймера
 		public function Start(maxTime:int):void
 		{
 			this.maxTime = maxTime;
 			//задаем оставшееся время как максимальное на данный момент
-			this.remained = maxTime;
+			this.remainedTime = maxTime;
 			//показываем время в textField;
 			showTime();
 			//задаем системному таймеру количество повторов
