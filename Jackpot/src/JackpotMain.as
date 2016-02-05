@@ -9,27 +9,38 @@ package
 	 * ...
 	 * @author Nikk
 	 */
-	[SWF(width="1024", height="768")]
+	[SWF(width="1920", height="960")]
 	public class JackpotMain extends Sprite 
 	{
 		
 		public function JackpotMain() 
 		{
-			if (stage) init();
-			else addEventListener(Event.ADDED_TO_STAGE, init);
-		}
-		
-		private function init(e:Event = null):void 
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
+			//var bg:MovieClip = new machine_background();
 			var popup:MovieClip = new eligibility_screen_popup();
+			//addChild(bg);
 			addChild(popup);
 			popup.x = 10;
 			popup.y = 10;
 			
+			var bs:ButtonSimple = new ButtonSimple(popup.do_btn);
+			bs.addEventListener(MouseEvent.CLICK, onClick);
 			//popup.do_btn.addEventListener(MouseEvent.CLICK, onDoButtonClick);
 		}
 		
+		
+		private function onClick(e:MouseEvent):void 
+		{
+			trace("click");
+			remove();
+		}
+		
+		public function remove():void
+			{
+			if (parent)
+			{
+			parent.removeChild(this);
+			}
+			}
 		
 	}
 	
