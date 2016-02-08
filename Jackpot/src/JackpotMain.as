@@ -3,7 +3,6 @@ package
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import flash.events.MouseEvent;
 	
 	/**
 	 * ...
@@ -13,8 +12,11 @@ package
 	public class JackpotMain extends Sprite 
 	{
 		
+		private var _pp		:PopupSimple;
 		public function JackpotMain() 
 		{
+			
+			/*
 			//var bg:MovieClip = new machine_background();
 			var popup:MovieClip = new eligibility_screen_popup();
 			//addChild(bg);
@@ -25,10 +27,15 @@ package
 			var bs:ButtonSimple = new ButtonSimple(popup.do_btn);
 			bs.addEventListener(MouseEvent.CLICK, onClick);
 			//popup.do_btn.addEventListener(MouseEvent.CLICK, onDoButtonClick);
+			
+			*/
+			
+			_pp = new MainBackgroundPopup(new machine_background());
+			_pp.show(this);
 		}
 		
 		
-		private function onClick(e:MouseEvent):void 
+		/*private function onClick(e:MouseEvent):void 
 		{
 			trace("click");
 			remove();
@@ -40,7 +47,7 @@ package
 			{
 			parent.removeChild(this);
 			}
-			}
+			}*/
 		
 	}
 	
