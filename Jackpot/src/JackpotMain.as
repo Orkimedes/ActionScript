@@ -12,6 +12,7 @@ package
 	public class JackpotMain extends Sprite 
 	{
 		
+		private var mainBackground:MainBackgroundPopup;
 		private var _pp		:PopupSimple;
 		private var _pp2	:PopupSimple;
 		public function JackpotMain() 
@@ -31,11 +32,17 @@ package
 			
 			*/
 			
+			mainBackground = new MainBackgroundPopup(new main_bg());
+			mainBackground.show(this);
+			mainBackground._machine01.addEventListener('openIlegibilityScreen', switchToIS);
 			_pp = new PopupSimple(new eligibility_screen_popup());
-			_pp.show(this);
 			_pp2 = new PopupSimple(new jackpot_info_popup());
-			_pp2.show(this);
 		}
+		
+		private function switchToIS(event:Event):void
+        {
+            _pp.show(this);
+        }
 		
 		
 

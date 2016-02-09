@@ -11,24 +11,24 @@ package
 	public class MainBackgroundPopup
 	{
 		protected var _cont:MovieClip;
-		private var _doBtn:ButtonSimple;
-		private var _xBtn:ButtonSimple;
+		public var _machine01:ButtonSimple;
+		public var _machine02:ButtonSimple;
 		
-		public function PopupSimple(content:MovieClip) 
+		public function MainBackgroundPopup(content:MovieClip) 
 		{
 			_cont = content;
-			_xBtn = new ButtonSimple(content.x_btn);
-			_doBtn = new ButtonSimple(content.do_btn);
-			_doBtn.addEventListener(MouseEvent.CLICK, closePopup);
-			_xBtn.addEventListener(MouseEvent.CLICK, closePopup);
+			_machine01 = new ButtonSimple(content.machine01);
+			_machine02 = new ButtonSimple(content.machine02);
+			_machine01.addEventListener(MouseEvent.CLICK, closePopup);
+			_machine02.addEventListener(MouseEvent.CLICK, closePopup);
 		}
 		
 		public function show(parentCont:DisplayObjectContainer):void
 		{
 			if (parentCont && _cont) {
 				parentCont.addChild(_cont);
-				_cont.x = (_cont.stage.stageWidth - _cont.width) / 2;
-				_cont.y = (_cont.stage.stageHeight -_cont.height) / 2;
+				//_cont.x = (_cont.stage.stageWidth - _cont.width) / 2;
+				//_cont.y = (_cont.stage.stageHeight -_cont.height) / 2;
 			}
 		}
 		
@@ -39,10 +39,11 @@ package
 					_cont.parent.removeChild(_cont);
 			}
 		}
-		private function closePopup(e:Event):void 
+		public function closePopup(e:Event):void 
 		{
-			_doBtn.removeEventListener(MouseEvent.CLICK, closePopup);
-			_xBtn.removeEventListener(MouseEvent.CLICK, closePopup);
+			_machine01.dispatchEvent(new Event('openIlegibilityScreen'));
+			_machine01.removeEventListener(MouseEvent.CLICK, closePopup);
+			_machine02.removeEventListener(MouseEvent.CLICK, closePopup);
 			close();
 		}
 	}
