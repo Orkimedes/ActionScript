@@ -13,9 +13,10 @@ package
 	{
 		
 		private var _pp		:PopupSimple;
+		private var _pp2	:PopupSimple;
 		public function JackpotMain() 
 		{
-			
+			//старый метод вызова
 			/*
 			//var bg:MovieClip = new machine_background();
 			var popup:MovieClip = new eligibility_screen_popup();
@@ -30,24 +31,15 @@ package
 			
 			*/
 			
-			_pp = new MainBackgroundPopup(new machine_background());
+			_pp = new PopupSimple(new eligibility_screen_popup());
 			_pp.show(this);
+			_pp2 = new PopupSimple(new jackpot_info_popup());
+			_pp2.show(this);
 		}
 		
 		
-		/*private function onClick(e:MouseEvent):void 
-		{
-			trace("click");
-			remove();
-		}
-		
-		public function remove():void
-			{
-			if (parent)
-			{
-			parent.removeChild(this);
-			}
-			}*/
+
+
 		
 	}
 	
