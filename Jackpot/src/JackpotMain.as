@@ -15,6 +15,7 @@ package
 		private var mainBackground:MainBackgroundPopup;
 		private var _pp		:PopupSimple;
 		private var _pp2	:PopupSimple;
+		private var machine:Machine;
 		public function JackpotMain() 
 		{
 			//старый метод вызова
@@ -31,22 +32,22 @@ package
 			//popup.do_btn.addEventListener(MouseEvent.CLICK, onDoButtonClick);
 			
 			*/
-			
-			mainBackground = new MainBackgroundPopup(new main_bg());
-			mainBackground.show(this);
-			mainBackground._machine01.addEventListener('openIlegibilityScreen', switchToIS);
 			_pp = new PopupSimple(new eligibility_screen_popup());
 			_pp2 = new PopupSimple(new jackpot_info_popup());
+			machine = new Machine(new machine_background());
+			mainBackground = new MainBackgroundPopup(new main_bg());
+			mainBackground.show(this);
+			mainBackground._machine01.addEventListener('openIlegibilityScreen', switchToMachine);
+
 		}
 		
-		private function switchToIS(event:Event):void
+		private function switchToMachine(event:Event):void
         {
-            _pp.show(this);
+            machine.show(this);
+			_pp.show(this);
         }
 		
 		
-
-
 		
 	}
 	

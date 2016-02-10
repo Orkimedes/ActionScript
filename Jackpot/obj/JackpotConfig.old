@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'09.02.2016'</value>
+      <value>'2/10/2016'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,17 +32,17 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>D:\projects\TaxPayments\Jackpot\src</path-element>
-      <path-element>D:\projects\TaxPayments\Jackpot\lib</path-element>
+      <path-element>D:\projects\ActionScript\git\Jackpot\src</path-element>
+      <path-element>D:\projects\ActionScript\git\Jackpot\lib</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>D:\projects\TaxPayments\Jackpot\lib</path-element>
-      <path-element>D:\projects\TaxPayments\Jackpot\lib\jackpot_assets.swc</path-element>
+      <path-element>D:\projects\ActionScript\git\Jackpot\lib</path-element>
+      <path-element>D:\projects\ActionScript\git\Jackpot\lib\jackpot_assets.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>D:\projects\TaxPayments\Jackpot\src\JackpotMain.as</path-element>
+    <path-element>D:\projects\ActionScript\git\Jackpot\src\JackpotMain.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
