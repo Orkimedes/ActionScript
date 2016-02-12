@@ -66,17 +66,14 @@ package
 			outputTotalSum = KustomTextField.createKustomTF(x5 - 10, y3 + 40, 50, 30, TextFieldType.DYNAMIC);
 			testField = KustomTextField.createKustomTF(x5 - 10, y3 + 80, 50, 30, TextFieldType.DYNAMIC);*/
 			
-<<<<<<< HEAD
 			//inputElectricityPrevious.text = '123.456789';
 			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
 			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
-			var someValue:Number = inputElectricityPrevious.numericValue
-=======
+			//var someValue:Number = inputElectricityPrevious.numericValue
 			/*inputElectricityPrevious.text = '123.456789';
 			trace(inputElectricityPrevious.numericValue);//получаем значение через getter
 			trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
 			var someValue:Number = inputElectricityPrevious.numericValue*/
->>>>>>> origin/master
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
@@ -137,22 +134,12 @@ package
 		private function calculateElectricity(event:MouseEvent):void
 		{
 			var result:Number;
-<<<<<<< HEAD
 			var a:Number = Number(inputElectricityPrevious.text);
 			var b:Number = Number(inputElectricityCurrent.text);
 			var difference:Number = Number(b - a);
 			var LOWPRICE:Number = .456;
 			var MIDPRICE:Number = .789
 			var LIMIT:Number = 100
-=======
-			var a:Number = inputElectricityPrevious.numericValue;
-			var b:Number = inputElectricityCurrent.numericValue;
-			var difference:Number = (b - a);
-			var LOWPRICE:Number = .456;
-			var MIDPRICE:Number = .789;
-			var HIPRICE:Number = 1.479;
-			var LIMIT:Number = 150;
->>>>>>> origin/master
 			
 			if (difference > LIMIT)
 			{
