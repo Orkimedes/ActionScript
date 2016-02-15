@@ -2,6 +2,7 @@ package text
 {
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
+	import flash.text.TextFormat;
 	
 	/**
 	 * ...
@@ -9,6 +10,7 @@ package text
 	 */
 	public class CustomTextField extends TextField 
 	{
+		private var myTextFormat:TextFormat = new TextFormat();
 		public function CustomTextField(x:Number, y:Number, width:Number, height:Number, type:String = TextFieldType.DYNAMIC) 
 		{
 			this.x = x;
@@ -18,7 +20,12 @@ package text
 			this.type = type;
 			border = true;
 			background = true;
-			backgroundColor = 0xFAD4DB;
+			backgroundColor = 0xFFA100;
+			myTextFormat.align = "center";
+			myTextFormat.font = "Tahoma";
+			myTextFormat.size = 28;
+			myTextFormat.color = 0x015367;
+			defaultTextFormat = myTextFormat;
 		}
 		
 		public function get numericValue():Number// используем getter для того чтобы получить значение
