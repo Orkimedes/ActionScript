@@ -11,7 +11,7 @@ package
 	
 	public class Button extends Sprite 
 	{	
-		private const COLORS:Array = [0xFAD4DB, 0xEC748B, 0xC13A59, 0xA81230];
+		private const COLORS:Array = [0xFF9473, 0xFF6E40, 0xFF3D00, 0xA62800];
 		private const COLORS2:Array = [0xcfd3e8, 0x9aa2cf, 0x4e5ba4, 0x3d4881];
 		private const COLORS3:Array = [0x006400, 0x008000, 0x228b22, 0x2e8b57];
 		private const ALPHAS:Array = [100, 100, 100, 100];
@@ -23,15 +23,16 @@ package
 		private var labelGlow:GlowFilter = new GlowFilter(0xFFFFFF, .50, 4, 4, 3, 3);
 		private var labelFilters:Array = [labelGlow];
 		
-		private var widthBtn:Number = 130;
-		private	var heightBtn:Number = 30;
+		private var widthBtn:Number = Main.baseX*2+Main.baseDelta;//кнопка занимает 2 поля, поэтому ширина равна x2 ширине +растояние между двумя полями
+		private	var heightBtn:Number = Main.baseY;
 		
 		public function Button() 
 		{
 			myFormat.align = "center";
 			myFormat.font = "Tahoma";
-			myFormat.size = 16;
-			myFormat.color = 0xFFFFFF;	
+			myFormat.size = 28;
+			myFormat.color = 0xFFFFFF;
+			myFormat.kerning = true;
 			
 			graphics.lineStyle(0, 0x820F26, 60, true, "none", "square", "round");
 			
