@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'2/15/2016'</value>
+      <value>'2/16/2016'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -39,7 +39,7 @@
   <file-specs>
     <path-element>D:\projects\ActionScript\git\Payments\src\Main.as</path-element>
   </file-specs>
-  <default-background-color>#03899C</default-background-color>
+  <default-background-color>#504A45</default-background-color>
   <default-frame-rate>30</default-frame-rate>
   <default-size>
     <width>640</width>

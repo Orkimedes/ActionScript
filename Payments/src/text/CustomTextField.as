@@ -20,11 +20,12 @@ package text
 			this.type = type;
 			border = true;
 			background = true;
-			backgroundColor = 0xFFA100;
+			backgroundColor = 0x2A5699;
 			myTextFormat.align = "center";
 			myTextFormat.font = "Tahoma";
 			myTextFormat.size = 28;
-			myTextFormat.color = 0x015367;
+			myTextFormat.color = 0xe5e5e5;
+			myTextFormat.leading = 20;
 			defaultTextFormat = myTextFormat;
 		}
 		
