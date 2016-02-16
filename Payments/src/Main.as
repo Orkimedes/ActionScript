@@ -146,6 +146,7 @@ package
 			{
 				result = (difference) * LOWPRICE;
 			}
+			result = getNumericValue(result);
 			outputElectricityCost.text = String(result);
 			outputElectricityDifference.text = String(difference);
 		}
@@ -157,6 +158,7 @@ package
 			var difference:Number = Number(b - a);
 			var PRICE:Number = 9.12;
 			var result:Number = Number(PRICE * difference);
+			result = getNumericValue(result);
 			
 			outputWaterCost.text = String(result);
 			outputWaterDifference.text = String(difference);
@@ -180,6 +182,7 @@ package
 			{
 				result = (difference) * LOWPRICE;
 			}
+			result = getNumericValue(result);
 			outputGasCost.text = String(result);
 			outputGasDifference.text = String(difference);
 		}
@@ -188,6 +191,12 @@ package
 		{
 			var result:Number = Number(outputGasCost.text) + Number(outputElectricityCost.text) + Number(outputWaterCost.text);
 			outputTotalSum.text = String(result);
+		}
+		
+		public function getNumericValue(text:Number,precision:Number = 0.01):Number
+		{
+			var radix:Number = 1 / precision; //default = 100
+			return Math.ceil(Number(text) * radix) / radix;
 		}
 		
 		/*private function onTxtChange(e:Event):void

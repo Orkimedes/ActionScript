@@ -34,7 +34,7 @@ package text
 			return Math.ceil(Number(text) * 100) / 100;
 		}
 		
-		public function getNumericValue(precision:Number = 0.01):Number
+		public function getNumericValue(text:Number,precision:Number = 0.01):Number
 		{
 			var radix:Number = 1 / precision; //default = 100
 			return Math.ceil(Number(text) * radix) / radix;
