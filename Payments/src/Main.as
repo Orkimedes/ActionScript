@@ -7,6 +7,7 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import text.CustomTextField;
+	import text.LabelTextField;
 	
 	[SWF(width="800", height="600")]
 	public class Main extends Sprite 
@@ -125,6 +126,8 @@ package
 			btn2.addEventListener(MouseEvent.CLICK, calculateGas);
 			btn2.x = x2; btn2.y = y3;
 			btn2.label = "Газ";
+			
+			LabelTextField();
 
 		}
 		
