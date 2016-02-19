@@ -9,14 +9,15 @@ package text
 	 */
 	public class LabelTextField extends Sprite
 	{
-		
+		private var beforeText:TextField = new TextField();
+		private	var nowText:TextField = new TextField();
+		private	var differenceText:TextField = new TextField();
+		private	var resultText:TextField = new TextField();
+		private	var totalSumText:TextField = new TextField();
+			
 		public function LabelTextField() 
 		{
-			var beforeText:TextField = new TextField();
-			var nowText:TextField = new TextField();
-			var differenceText:TextField = new TextField();
-			var resultText:TextField = new TextField();
-			var totalSumText:TextField = new TextField();
+			
 			//
 			beforeText.text = 'Предыдущие показания';
 			nowText.text = 'Текущие показания';
@@ -29,17 +30,18 @@ package text
 			beforeText.x = 100;
 			beforeText.y = 100;
 			//
-			createLabels();
-			
-		}
-		
-		public function createLabels():void 
-		{
+			//createLabels();
 			addChild(beforeText);
 			addChild(nowText);
 			addChild(differenceText);
 			addChild(resultText);
 			addChild(totalSumText);
+			
+		}
+		
+		public function createLabels():void 
+		{
+			
 		}
 		
 		

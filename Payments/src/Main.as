@@ -4,6 +4,7 @@ package
 	import flash.events.Event;
 	import flash.display.*;
 	import flash.events.MouseEvent;
+	import flash.geom.Point;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import text.CustomTextField;
@@ -18,13 +19,52 @@ package
 		public static var baseDelta:Number = 30;
 		public static var startPointX:Number = 20;
 		public static var startPointY:Number = startPointX;
+		
+		public static const columnWidth:Number = baseX + baseDelta;
+		public static const rowHeight:Number = baseY + baseDelta;
+		
 		//
+		
+		public static const points:Vector.<Point> = new <Point>[
+			new Point(startPointX, startPointY),
+			new Point(startPointX, startPointY),
+		
+		]
+		
 		private var x0:Number = startPointX;
-		private var x1:Number = x0+baseDelta+baseX;
-		private var x2:Number = x1+baseDelta+baseX;
-		private var x3:Number = x2+baseDelta+baseX;
-		private var x4:Number = x3+baseDelta+baseX;
-		private var x5:Number = x4+baseDelta+baseX;
+		private var x1:Number = startPointX + (baseDelta + baseX) * 1;
+		private var x2:Number = startPointX + (baseDelta + baseX) * 2;
+		private var x3:Number = startPointX + (baseDelta + baseX) * 3;
+		private var x4:Number = startPointX + (baseDelta + baseX) * 4;
+		private var x5:Number = startPointX + (baseDelta + baseX) * 5;
+		
+		public function getXPoint(columnIndex:int):Number {
+			return startPointX + columnWidth * columnIndex;			
+		}
+		
+		public function getYPoint(rowIndex:int):Number {
+			
+			return startPointY + rowHeight * rowIndex;		
+		}
+		
+		/**
+		 * Returns new point with coords
+		 * <i>Example:
+		 * var p:Point = getCoord(1, 1);
+		 * trace(p.x, p.y);
+		 * </i>
+		 * 
+		 * @param	columnIndex
+		 * @param	rowIndex
+		 * @return Point
+		 */
+		public function getCoord(columnIndex:int, rowIndex:int):Point {
+			return new Point(
+				startPointX + columnWidth * columnIndex,
+				startPointY + rowHeight * rowIndex
+			);
+		}
+		
 		
 		private var y1:Number = startPointY;
 		private var y2:Number = y1+baseY+baseDelta;
@@ -55,7 +95,7 @@ package
 		private var inputEl1:Number;
 		
 		public function Main():void 
-		{
+		{			
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
@@ -70,6 +110,14 @@ package
 			trace(inputElectricityPrevious.numericValue);//получаем значение через getter
 			trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
 			var someValue:Number = inputElectricityPrevious.numericValue*/
+			
+			//inputElectricityPrevious = new MetricField(getCoord(0, 0));
+			//inputElectricityPrevious.editable = true;
+			
+			//inputElectricityCurrent = new MetricField(getCoord(1, 0));
+			//inputWaterPrevious = new MetricField(getCoord(0, 1));
+			//inputWaterCurrent = new MetricField(getCoord(1, 1));
+			
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			//inputs
@@ -127,7 +175,7 @@ package
 			btn2.x = x2; btn2.y = y3;
 			btn2.label = "Газ";
 			
-			LabelTextField();
+			
 
 		}
 		
