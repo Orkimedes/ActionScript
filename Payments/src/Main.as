@@ -23,6 +23,7 @@ package
 		public static const columnWidth:Number = baseX + baseDelta;
 		public static const rowHeight:Number = baseY + baseDelta;
 		
+		//создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
 		//
 		
 		public static const points:Vector.<Point> = new <Point>[
