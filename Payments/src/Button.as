@@ -23,8 +23,10 @@ package
 		private var labelGlow:GlowFilter = new GlowFilter(0xFFFFFF, .50, 4, 4, 3, 3);
 		private var labelFilters:Array = [labelGlow];
 		
-		private var widthBtn:Number = Main.baseX*2+Main.baseDelta;//кнопка занимает 2 поля, поэтому ширина равна x2 ширине +растояние между двумя полями
-		private	var heightBtn:Number = Main.baseY;
+		private static const GAP:int = 5;
+		
+		private var widthBtn:Number = GAP+100;//кнопка занимает 2 поля, поэтому ширина равна x2 ширине +растояние между двумя полями
+		private	var heightBtn:Number = 60;
 		
 		public function Button() 
 		{

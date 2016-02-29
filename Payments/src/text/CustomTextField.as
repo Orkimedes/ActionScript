@@ -1,5 +1,6 @@
 package text 
 {
+	import flash.geom.Point;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
@@ -11,10 +12,10 @@ package text
 	public class CustomTextField extends TextField 
 	{
 		private var myTextFormat:TextFormat = new TextFormat();
-		public function CustomTextField(x:Number, y:Number, width:Number, height:Number, type:String = TextFieldType.DYNAMIC) 
+		public function CustomTextField(coords:Point, width:Number, height:Number, type:String = TextFieldType.DYNAMIC) 
 		{
-			this.x = x;
-			this.y = y;
+			this.x = coords.x;
+			this.y = coords.y;
 			this.width = width;
 			this.height = height;
 			this.type = type;

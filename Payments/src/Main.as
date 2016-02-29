@@ -8,38 +8,31 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import text.CustomTextField;
-	import text.LabelTextField;
 	
 	[SWF(width="800", height="600")]
 	public class Main extends Sprite 
 	{
 		//задаем стандартные значения длины, ширины, расстояния между объектами и стартовой точки
-		public static var baseX:Number = 100;
-		public static var baseY:Number = 60;
-		public static var baseDelta:Number = 30;
-		public static var startPointX:Number = 20;
-		public static var startPointY:Number = startPointX;
+		private static var buttonWidth:Number = 100;
+		private static var buttonHeight:Number = 60;
+		private static var gap:Number = 30;
+		private static var startPointX:Number = 20;
+		private static var startPointY:Number = 20;
 		
-		public static const columnWidth:Number = baseX + baseDelta;
-		public static const rowHeight:Number = baseY + baseDelta;
+		public static const columnWidth:Number = buttonWidth + gap;
+		public static const rowHeight:Number = buttonHeight + gap;
 		
-		//создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
-		//
+		//TODO: создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
+		//математику в отдельный класс
+		//size of button transfer on creation
 		
 		public static const points:Vector.<Point> = new <Point>[
 			new Point(startPointX, startPointY),
-			new Point(startPointX, startPointY),
-		
-		]
-		
-		private var x0:Number = startPointX;
-		private var x1:Number = startPointX + (baseDelta + baseX) * 1;
-		private var x2:Number = startPointX + (baseDelta + baseX) * 2;
-		private var x3:Number = startPointX + (baseDelta + baseX) * 3;
-		private var x4:Number = startPointX + (baseDelta + baseX) * 4;
-		private var x5:Number = startPointX + (baseDelta + baseX) * 5;
+			new Point(startPointX, startPointY),		
+		];
 		
 		public function getXPoint(columnIndex:int):Number {
+			
 			return startPointX + columnWidth * columnIndex;			
 		}
 		
@@ -60,21 +53,17 @@ package
 		 * @return Point
 		 */
 		public function getCoord(columnIndex:int, rowIndex:int):Point {
-			return new Point(
-				startPointX + columnWidth * columnIndex,
-				startPointY + rowHeight * rowIndex
-			);
+			
+			var result:Point = new Point();
+			result.x = startPointX + columnWidth * columnIndex;
+			result.y = startPointY + rowHeight * rowIndex;			
+			
+			return result;
 		}
-		
-		
-		private var y1:Number = startPointY;
-		private var y2:Number = y1+baseY+baseDelta;
-		private var y3:Number = y2+baseDelta+baseY;
-		private var y4:Number = y3 + baseDelta + baseY;
-		private var y5:Number = y4 + baseDelta +baseY;
 	
 		
 		private var btn0:Button = new Button();
+		//private var btn0:Button = new Button(width, height);
 		private var btn1:Button = new Button();
 		private var btn2:Button = new Button();
 		
@@ -122,22 +111,22 @@ package
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			//inputs
-			inputElectricityPrevious = new CustomTextField(x0, y1, baseX, baseY, TextFieldType.INPUT); //new TextField();
-			inputElectricityCurrent = new CustomTextField(x1, y1, baseX, baseY, TextFieldType.INPUT);
-			inputWaterPrevious = new CustomTextField(x0, y2, baseX, baseY, TextFieldType.INPUT);
-			inputWaterCurrent = new CustomTextField(x1, y2, baseX, baseY, TextFieldType.INPUT);
-			inputGasPrevious = new CustomTextField(x0, y3, baseX, baseY, TextFieldType.INPUT);
-			inputGasCurrent = new CustomTextField(x1, y3, baseX, baseY, TextFieldType.INPUT);
+			inputElectricityPrevious = new CustomTextField(getCoord(0, 1), buttonWidth, buttonHeight, TextFieldType.INPUT); //new TextField();
+			inputElectricityCurrent = new CustomTextField(getCoord(1, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputWaterPrevious = new CustomTextField(getCoord(0, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputWaterCurrent = new CustomTextField(getCoord(1, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputGasPrevious = new CustomTextField(getCoord(0, 3), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputGasCurrent = new CustomTextField(getCoord(1, 3), buttonWidth, buttonHeight, TextFieldType.INPUT);
 			//outputs
-			outputElectricityDifference = new CustomTextField(x4, y1, baseX, baseY, TextFieldType.DYNAMIC);
-			outputElectricityCost = new CustomTextField(x5, y1, baseX, baseY, TextFieldType.DYNAMIC);
-			outputWaterDifference = new CustomTextField(x4, y2, baseX, baseY, TextFieldType.DYNAMIC);
-			outputWaterCost = new CustomTextField(x5, y2, baseX, baseY, TextFieldType.DYNAMIC);
-			outputGasDifference = new CustomTextField(x4, y3, baseX, baseY, TextFieldType.DYNAMIC);
-			outputGasCost = new CustomTextField(x5, y3, baseX, baseY, TextFieldType.DYNAMIC);
+			outputElectricityDifference = new CustomTextField(getCoord(4, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputElectricityCost = new CustomTextField(getCoord(5, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputWaterDifference = new CustomTextField(getCoord(4, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputWaterCost = new CustomTextField(getCoord(5, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputGasDifference = new CustomTextField(getCoord(4, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputGasCost = new CustomTextField(getCoord(5, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
 			//inProgress
-			outputTotalSum = new CustomTextField(x5, y4, baseX, baseY, TextFieldType.DYNAMIC);
-			testField = new CustomTextField(x5, y5, baseX, baseY, TextFieldType.DYNAMIC);
+			outputTotalSum = new CustomTextField(getCoord(5, 4), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			testField = new CustomTextField(getCoord(5, 5), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
 			
 			addChild(inputElectricityPrevious);			
 			addChild(inputElectricityCurrent);	
@@ -157,27 +146,39 @@ package
 			//inputElectricityPrevious.addEventListener(Event.CHANGE, onTxtChange);
 			addEventListener(MouseEvent.CLICK, totalSum);
 			
+			createButtons();
+			
+			
+
+		}
+		
+		private function createButtons():void 
+		{
+			var btn0coords:Point = getCoord(2, 1);
+			
 			addChild(btn0);
 			btn0.addEventListener(MouseEvent.CLICK, calculateElectricity);
-			btn0.x = x2; btn0.y = y1;
+			btn0.x = btn0coords.x;
+			btn0.y = btn0coords.y;
 			btn0.label = "Свет";
 			
 			/*removeChild(btn0);
 			btn0.destroy();
 			btn0 = null;*/
 			
+			var btn1coords:Point = getCoord(2, 2);
 			addChild(btn1);
 			btn1.addEventListener(MouseEvent.CLICK, calculateWater);
-			btn1.x = x2; btn1.y = y2;
+			btn1.x = btn1coords.x;
+			btn1.y = btn1coords.y;
 			btn1.label = "Вода";
-
+			
+			var btn2coords:Point = getCoord(2, 3);
 			addChild(btn2);
 			btn2.addEventListener(MouseEvent.CLICK, calculateGas);
-			btn2.x = x2; btn2.y = y3;
+			btn2.x = btn2coords.x;
+			btn2.y = btn2coords.y;
 			btn2.label = "Газ";
-			
-			
-
 		}
 		
 		private function calculateElectricity(event:MouseEvent):void
