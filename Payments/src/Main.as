@@ -86,20 +86,20 @@ package
 		
 		public function Main():void 
 		{			
-			if (stage) init();
-			else addEventListener(Event.ADDED_TO_STAGE, init);
+			addEventListener(MouseEvent.CLICK, totalSum);
+			
+			createTextFields();
+			createButtons();
 		}
 		
-		private function init(e:Event = null):void 
+		/*private function init(e:Event = null):void 
 		{
-			//inputElectricityPrevious.text = '123.456789';
 			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
 			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
 			//var someValue:Number = inputElectricityPrevious.numericValue
-			/*inputElectricityPrevious.text = '123.456789';
-			trace(inputElectricityPrevious.numericValue);//получаем значение через getter
-			trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
-			var someValue:Number = inputElectricityPrevious.numericValue*/
+			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
+			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
+			//var someValue:Number = inputElectricityPrevious.numericValue
 			
 			//inputElectricityPrevious = new MetricField(getCoord(0, 0));
 			//inputElectricityPrevious.editable = true;
@@ -110,6 +110,15 @@ package
 			
 			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			addEventListener(MouseEvent.CLICK, totalSum);
+			
+			createTextFields();
+			createButtons();
+		}*/
+		
+		private function createTextFields():void 
+		{
 			//inputs
 			inputElectricityPrevious = new CustomTextField(getCoord(0, 1), buttonWidth, buttonHeight, TextFieldType.INPUT); //new TextField();
 			inputElectricityCurrent = new CustomTextField(getCoord(1, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
@@ -142,14 +151,6 @@ package
 			addChild(outputGasDifference);
 			addChild(outputTotalSum);
 			addChild(testField);
-			
-			//inputElectricityPrevious.addEventListener(Event.CHANGE, onTxtChange);
-			addEventListener(MouseEvent.CLICK, totalSum);
-			
-			createButtons();
-			
-			
-
 		}
 		
 		private function createButtons():void 
@@ -188,8 +189,8 @@ package
 			var b:Number = Number(inputElectricityCurrent.text);
 			var difference:Number = Number(b - a);
 			var LOWPRICE:Number = .456;
-			var MIDPRICE:Number = .789
-			var LIMIT:Number = 100
+			var MIDPRICE:Number = .789;
+			var LIMIT:Number = 100;
 			
 			if (difference > LIMIT)
 			{
