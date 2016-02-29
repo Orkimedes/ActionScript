@@ -62,10 +62,9 @@ package
 		}
 	
 		
-		private var btn0:Button = new Button();
-		//private var btn0:Button = new Button(width, height);
-		private var btn1:Button = new Button();
-		private var btn2:Button = new Button();
+		private var btn0:Button = new Button(buttonWidth*2.3,buttonHeight);
+		private var btn1:Button = new Button(buttonWidth*2.3,buttonHeight);
+		private var btn2:Button = new Button(buttonWidth*2.3,buttonHeight);
 		
 		private var inputElectricityPrevious     :CustomTextField; //теперь это объект класса CustomTextField, а не TextField, и для них можно использовать методы этого класса
 		private var inputElectricityCurrent      :CustomTextField; //объявлены ы этой части кода, чтобы различные функции имели доступ к ним

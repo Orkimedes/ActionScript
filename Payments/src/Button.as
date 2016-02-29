@@ -1,6 +1,7 @@
 package  
 {
 	import flash.display.*;
+	import flash.geom.Point;
 	import flash.text.*;
 	import flash.geom.Matrix;
 	import flash.text.TextField;
@@ -23,13 +24,14 @@ package
 		private var labelGlow:GlowFilter = new GlowFilter(0xFFFFFF, .50, 4, 4, 3, 3);
 		private var labelFilters:Array = [labelGlow];
 		
-		private static const GAP:int = 5;
 		
-		private var widthBtn:Number = GAP+100;//кнопка занимает 2 поля, поэтому ширина равна x2 ширине +растояние между двумя полями
-		private	var heightBtn:Number = 60;
+		private var widthBtn:Number;
+		private	var heightBtn:Number;
 		
-		public function Button() 
+		public function Button(width:Number,height:Number) 
 		{
+			widthBtn = width;
+			heightBtn = height;
 			myFormat.align = "center";
 			myFormat.font = "Tahoma";
 			myFormat.size = 28;
