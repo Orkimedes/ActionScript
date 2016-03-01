@@ -24,7 +24,6 @@ package
 		
 		//TODO: создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
 		//математику в отдельный класс
-		//size of button transfer on creation
 		
 		public static const points:Vector.<Point> = new <Point>[
 			new Point(startPointX, startPointY),
@@ -90,31 +89,6 @@ package
 			createTextFields();
 			createButtons();
 		}
-		
-		/*private function init(e:Event = null):void 
-		{
-			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
-			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
-			//var someValue:Number = inputElectricityPrevious.numericValue
-			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
-			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
-			//var someValue:Number = inputElectricityPrevious.numericValue
-			
-			//inputElectricityPrevious = new MetricField(getCoord(0, 0));
-			//inputElectricityPrevious.editable = true;
-			
-			//inputElectricityCurrent = new MetricField(getCoord(1, 0));
-			//inputWaterPrevious = new MetricField(getCoord(0, 1));
-			//inputWaterCurrent = new MetricField(getCoord(1, 1));
-			
-			
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			
-			addEventListener(MouseEvent.CLICK, totalSum);
-			
-			createTextFields();
-			createButtons();
-		}*/
 		
 		private function createTextFields():void 
 		{
@@ -258,6 +232,32 @@ package
 			inputEl1 = Math.ceil(x * 100) / 100;
 			testField.text = String(inputEl1);
 		}*/
+		
+		/*private function init(e:Event = null):void 
+		{
+			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
+			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
+			//var someValue:Number = inputElectricityPrevious.numericValue
+			//trace(inputElectricityPrevious.numericValue);//получаем значение через getter
+			//trace(inputElectricityPrevious.getNumericValue(0.1));//вызов метода класса CustomTextField
+			//var someValue:Number = inputElectricityPrevious.numericValue
+			
+			//inputElectricityPrevious = new MetricField(getCoord(0, 0));
+			//inputElectricityPrevious.editable = true;
+			
+			//inputElectricityCurrent = new MetricField(getCoord(1, 0));
+			//inputWaterPrevious = new MetricField(getCoord(0, 1));
+			//inputWaterCurrent = new MetricField(getCoord(1, 1));
+			
+			
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			addEventListener(MouseEvent.CLICK, totalSum);
+			
+			createTextFields();
+			createButtons();
+		}*/
+		
 		
 		/*Население, проживающее в жилых домах (в том числе в домах, оборудованных кухонными электроплитами)	 
 		– за объем, употребленный до 100 кВт·час электроэнергии в месяц		57,0
