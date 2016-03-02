@@ -38,6 +38,18 @@ package
 			return String(result)
 		}
 		
+		private static function convertToString()
+		{
+			
+		}
+		
+		
+		public static function convertToNumber(text:Number,precision:Number = 0.01):Number
+		{
+			var radix:Number = 1 / precision; //default = 100
+			return Math.ceil(Number(text) * radix) / radix;
+		}
+		
 		
 		
 	}

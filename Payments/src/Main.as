@@ -26,20 +26,7 @@ package
 		//TODO: создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
 		//математику в отдельный класс
 		
-		public static const points:Vector.<Point> = new <Point>[
-			new Point(startPointX, startPointY),
-			new Point(startPointX, startPointY),		
-		];
 		
-		public function getXPoint(columnIndex:int):Number {
-			
-			return startPointX + columnWidth * columnIndex;			
-		}
-		
-		public function getYPoint(rowIndex:int):Number {
-			
-			return startPointY + rowHeight * rowIndex;		
-		}
 		
 		/**
 		 * Returns new point with coords
@@ -67,7 +54,7 @@ package
 		private var btn2:Button = new Button(buttonWidth,standardHeight);
 		
 		private var inputElectricityPrevious     :CustomTextField; //теперь это объект класса CustomTextField, а не TextField, и для них можно использовать методы этого класса
-		private var inputElectricityCurrent      :CustomTextField; //объявлены ы этой части кода, чтобы различные функции имели доступ к ним
+		private var inputElectricityCurrent      :CustomTextField; 
 		private var outputElectricityCost        :CustomTextField;
 		private var outputElectricityDifference  :CustomTextField;
 		private var inputWaterPrevious           :CustomTextField;
@@ -225,6 +212,21 @@ package
 		{
 			var radix:Number = 1 / precision; //default = 100
 			return Math.ceil(Number(text) * radix) / radix;
+		}
+		
+		public static const points:Vector.<Point> = new <Point>[
+			new Point(startPointX, startPointY),
+			new Point(startPointX, startPointY),		
+		];
+		
+		public function getXPoint(columnIndex:int):Number {
+			
+			return startPointX + columnWidth * columnIndex;			
+		}
+		
+		public function getYPoint(rowIndex:int):Number {
+			
+			return startPointY + rowHeight * rowIndex;		
 		}
 		
 		/*private function onTxtChange(e:Event):void
