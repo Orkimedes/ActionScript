@@ -13,14 +13,15 @@ package
 	public class Main extends Sprite 
 	{
 		//задаем стандартные значения длины, ширины, расстояния между объектами и стартовой точки
-		private static var buttonWidth:Number = 100;
-		private static var buttonHeight:Number = 60;
+		private static var standardWidth:Number = 100;
+		private static var standardHeight:Number = 60;
 		private static var gap:Number = 30;
+		private static var buttonWidth:Number = standardWidth * 2 + gap;
 		private static var startPointX:Number = 20;
 		private static var startPointY:Number = 20;
 		
-		public static const columnWidth:Number = buttonWidth + gap;
-		public static const rowHeight:Number = buttonHeight + gap;
+		public static const columnWidth:Number = standardWidth + gap;
+		public static const rowHeight:Number = standardHeight + gap;
 		
 		//TODO: создать класс который будет по поинтам расставлять текстовые поля. SomeField(point:point)
 		//математику в отдельный класс
@@ -61,9 +62,9 @@ package
 		}
 	
 		
-		private var btn0:Button = new Button(buttonWidth*2.3,buttonHeight);
-		private var btn1:Button = new Button(buttonWidth*2.3,buttonHeight);
-		private var btn2:Button = new Button(buttonWidth*2.3,buttonHeight);
+		private var btn0:Button = new Button(buttonWidth,standardHeight);
+		private var btn1:Button = new Button(buttonWidth,standardHeight);
+		private var btn2:Button = new Button(buttonWidth,standardHeight);
 		
 		private var inputElectricityPrevious     :CustomTextField; //теперь это объект класса CustomTextField, а не TextField, и для них можно использовать методы этого класса
 		private var inputElectricityCurrent      :CustomTextField; //объявлены ы этой части кода, чтобы различные функции имели доступ к ним
@@ -93,22 +94,22 @@ package
 		private function createTextFields():void 
 		{
 			//inputs
-			inputElectricityPrevious = new CustomTextField(getCoord(0, 0), buttonWidth, buttonHeight, TextFieldType.INPUT); //new TextField();
-			inputElectricityCurrent = new CustomTextField(getCoord(1, 0), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputWaterPrevious = new CustomTextField(getCoord(0, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputWaterCurrent = new CustomTextField(getCoord(1, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputGasPrevious = new CustomTextField(getCoord(0, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputGasCurrent = new CustomTextField(getCoord(1, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputElectricityPrevious = new CustomTextField(getCoord(0, 0), standardWidth, standardHeight, TextFieldType.INPUT); //new TextField();
+			inputElectricityCurrent = new CustomTextField(getCoord(1, 0), standardWidth, standardHeight, TextFieldType.INPUT);
+			inputWaterPrevious = new CustomTextField(getCoord(0, 1), standardWidth, standardHeight, TextFieldType.INPUT);
+			inputWaterCurrent = new CustomTextField(getCoord(1, 1), standardWidth, standardHeight, TextFieldType.INPUT);
+			inputGasPrevious = new CustomTextField(getCoord(0, 2), standardWidth, standardHeight, TextFieldType.INPUT);
+			inputGasCurrent = new CustomTextField(getCoord(1, 2), standardWidth, standardHeight, TextFieldType.INPUT);
 			//outputs
-			outputElectricityDifference = new CustomTextField(getCoord(4, 0), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputElectricityCost = new CustomTextField(getCoord(5, 0), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputWaterDifference = new CustomTextField(getCoord(4, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputWaterCost = new CustomTextField(getCoord(5, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputGasDifference = new CustomTextField(getCoord(4, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputGasCost = new CustomTextField(getCoord(5, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputElectricityDifference = new CustomTextField(getCoord(4, 0), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			outputElectricityCost = new CustomTextField(getCoord(5, 0), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			outputWaterDifference = new CustomTextField(getCoord(4, 1), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			outputWaterCost = new CustomTextField(getCoord(5, 1), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			outputGasDifference = new CustomTextField(getCoord(4, 2), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			outputGasCost = new CustomTextField(getCoord(5, 2), standardWidth, standardHeight, TextFieldType.DYNAMIC);
 			//inProgress
-			outputTotalSum = new CustomTextField(getCoord(5, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			testField = new CustomTextField(getCoord(5, 4), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputTotalSum = new CustomTextField(getCoord(5, 3), standardWidth, standardHeight, TextFieldType.DYNAMIC);
+			testField = new CustomTextField(getCoord(5, 4), standardWidth, standardHeight, TextFieldType.DYNAMIC);
 			
 			addChild(inputElectricityPrevious);			
 			addChild(inputElectricityCurrent);	
