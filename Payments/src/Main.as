@@ -93,22 +93,22 @@ package
 		private function createTextFields():void 
 		{
 			//inputs
-			inputElectricityPrevious = new CustomTextField(getCoord(0, 1), buttonWidth, buttonHeight, TextFieldType.INPUT); //new TextField();
-			inputElectricityCurrent = new CustomTextField(getCoord(1, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputWaterPrevious = new CustomTextField(getCoord(0, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputWaterCurrent = new CustomTextField(getCoord(1, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputGasPrevious = new CustomTextField(getCoord(0, 3), buttonWidth, buttonHeight, TextFieldType.INPUT);
-			inputGasCurrent = new CustomTextField(getCoord(1, 3), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputElectricityPrevious = new CustomTextField(getCoord(0, 0), buttonWidth, buttonHeight, TextFieldType.INPUT); //new TextField();
+			inputElectricityCurrent = new CustomTextField(getCoord(1, 0), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputWaterPrevious = new CustomTextField(getCoord(0, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputWaterCurrent = new CustomTextField(getCoord(1, 1), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputGasPrevious = new CustomTextField(getCoord(0, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
+			inputGasCurrent = new CustomTextField(getCoord(1, 2), buttonWidth, buttonHeight, TextFieldType.INPUT);
 			//outputs
-			outputElectricityDifference = new CustomTextField(getCoord(4, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputElectricityCost = new CustomTextField(getCoord(5, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputWaterDifference = new CustomTextField(getCoord(4, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputWaterCost = new CustomTextField(getCoord(5, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputGasDifference = new CustomTextField(getCoord(4, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			outputGasCost = new CustomTextField(getCoord(5, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputElectricityDifference = new CustomTextField(getCoord(4, 0), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputElectricityCost = new CustomTextField(getCoord(5, 0), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputWaterDifference = new CustomTextField(getCoord(4, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputWaterCost = new CustomTextField(getCoord(5, 1), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputGasDifference = new CustomTextField(getCoord(4, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputGasCost = new CustomTextField(getCoord(5, 2), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
 			//inProgress
-			outputTotalSum = new CustomTextField(getCoord(5, 4), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
-			testField = new CustomTextField(getCoord(5, 5), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			outputTotalSum = new CustomTextField(getCoord(5, 3), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
+			testField = new CustomTextField(getCoord(5, 4), buttonWidth, buttonHeight, TextFieldType.DYNAMIC);
 			
 			addChild(inputElectricityPrevious);			
 			addChild(inputElectricityCurrent);	
@@ -128,7 +128,7 @@ package
 		
 		private function createButtons():void 
 		{
-			var btn0coords:Point = getCoord(2, 1);
+			var btn0coords:Point = getCoord(2, 0);
 			
 			addChild(btn0);
 			btn0.addEventListener(MouseEvent.CLICK, calculateElectricity);
@@ -140,14 +140,14 @@ package
 			btn0.destroy();
 			btn0 = null;*/
 			
-			var btn1coords:Point = getCoord(2, 2);
+			var btn1coords:Point = getCoord(2, 1);
 			addChild(btn1);
 			btn1.addEventListener(MouseEvent.CLICK, calculateWater);
 			btn1.x = btn1coords.x;
 			btn1.y = btn1coords.y;
 			btn1.label = "Вода";
 			
-			var btn2coords:Point = getCoord(2, 3);
+			var btn2coords:Point = getCoord(2, 2);
 			addChild(btn2);
 			btn2.addEventListener(MouseEvent.CLICK, calculateGas);
 			btn2.x = btn2coords.x;

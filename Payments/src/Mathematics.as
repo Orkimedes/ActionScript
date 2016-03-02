@@ -13,17 +13,12 @@ package
 			
 		}
 		
-		public static function calculateElectricity(a:String, b:String, event:MouseEvent):String
-		{
-			
-		}
-		
-		private function _calculateElectricity(event:MouseEvent):void
+		public static function calculateElectricity(a:String, b:String):String
 		{
 			var result:Number;
-			var a:Number = Number(inputElectricityPrevious.text);
-			var b:Number = Number(inputElectricityCurrent.text);
-			var difference:Number = Number(b - a);
+			var _a:Number = Number(a);
+			var _b:Number = Number(b);
+			var difference:Number = b-a;
 			var LOWPRICE:Number = .456;
 			var MIDPRICE:Number = .789;
 			var LIMIT:Number = 100;
@@ -39,7 +34,11 @@ package
 			result = getNumericValue(result);
 			outputElectricityCost.text = String(result);
 			outputElectricityDifference.text = String(difference);
+			
+			return String(result)
 		}
+		
+		
 		
 	}
 	
