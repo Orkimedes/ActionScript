@@ -13,7 +13,7 @@ package
 			
 		}
 		
-		public static function calculateElectricity(a:String, b:String):String
+		public static function calculateElectricity(a:String, b:String):CalculationResult
 		{
 			var result:Number;
 			var _a:Number = Number(a);
@@ -32,10 +32,8 @@ package
 				result = (difference) * LOWPRICE;
 			}
 			result = getNumericValue(result);
-			outputElectricityCost.text = String(result);
-			outputElectricityDifference.text = String(difference);
 			
-			return String(result)
+			return new CalculationResult(difference, result);
 		}
 		
 		private static function convertToString()

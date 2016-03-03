@@ -1,4 +1,4 @@
-package 
+package text 
 {
 	import flash.display.DisplayObject;
 	import flash.text.TextField;
