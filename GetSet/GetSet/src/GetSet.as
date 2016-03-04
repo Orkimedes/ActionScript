@@ -15,7 +15,7 @@ package
 		
 		public function get publicAccess():String
 		{
-			return privateProperty ;
+			return privateProperty;
 		}
 		
 		public function set publicAccess(setValue:String):void
