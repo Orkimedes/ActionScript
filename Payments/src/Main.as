@@ -76,6 +76,9 @@ package
 			
 			createTextFields();
 			createButtons();
+			
+			
+			
 		}
 		
 		private function createTextFields():void 
@@ -164,6 +167,10 @@ package
 			result = getNumericValue(result);
 			outputElectricityCost.text = String(result);
 			outputElectricityDifference.text = String(difference);
+			
+			var test:CalculationResult= Mathematics.calculateElectricity(inputElectricityPrevious.text, inputElectricityCurrent.text);
+			trace (test.cost);
+			trace (test.dif);
 		}
 		
 		private function calculateWater(event:MouseEvent):void

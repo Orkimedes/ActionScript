@@ -7,21 +7,21 @@ package
 	 */
 	public class CalculationResult
 	{
-		private var _dif:int;
-		private var _cost:int;
+		private var _dif:Number;
+		private var _cost:Number;
 		
-		public function CalculationResult(dif:int, cost:int)
+		public function CalculationResult(dif:Number, cost:Number)
 		{
 			_dif = dif;
 			_cost = cost;
 		}
 		
-		public function get dif():int 
+		public function get dif():Number 
 		{
 			return _dif;
 		}
 		
-		public function get cost():int 
+		public function get cost():Number 
 		{
 			return _cost;
 		}
