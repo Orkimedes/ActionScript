@@ -152,8 +152,8 @@ package
 			var a:Number = Number(inputElectricityPrevious.text);
 			var b:Number = Number(inputElectricityCurrent.text);
 			var difference:Number = Number(b - a);
-			var LOWPRICE:Number = .456;
-			var MIDPRICE:Number = .789;
+			var LOWPRICE:Number = .57;
+			var MIDPRICE:Number = .99;
 			var LIMIT:Number = 100;
 			
 			if (difference > LIMIT)

@@ -19,8 +19,8 @@ package
 			var _a:Number = convertToNumber(a);
 			var _b:Number = convertToNumber(b);
 			var difference:Number = (_b-_a);
-			var LOWPRICE:Number = .456;
-			var MIDPRICE:Number = .789;
+			var LOWPRICE:Number = .57;
+			var MIDPRICE:Number = .99;
 			var LIMIT:Number = 100;
 			
 			if (difference > LIMIT)
