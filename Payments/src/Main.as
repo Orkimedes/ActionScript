@@ -178,7 +178,7 @@ package
 			var a:Number = Number(inputWaterPrevious.text);
 			var b:Number = Number(inputWaterCurrent.text);
 			var difference:Number = Number(b - a);
-			var PRICE:Number = 9.12;
+			var PRICE:Number = 11.60;
 			var result:Number = Number(PRICE * difference);
 			result = getNumericValue(result);
 			
