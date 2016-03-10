@@ -13,12 +13,10 @@ package
 			
 		}
 		
-		public static function calculateElectricity(a:String, b:String):CalculationResult
+		public static function calculateElectricity(previous:Number, current:Number):CalculationResult
 		{
 			var result:Number;
-			var _a:Number = convertToNumber(a);
-			var _b:Number = convertToNumber(b);
-			var difference:Number = (_b-_a);
+			var difference:Number = current - previous;
 			var LOWPRICE:Number = .57;
 			var MIDPRICE:Number = .99;
 			var LIMIT:Number = 100;
@@ -29,22 +27,17 @@ package
 			}
 			else 
 			{
-				result = (difference) * LOWPRICE;
+				result = ceilNumber((difference) * LOWPRICE);
+				trace(result);
 			}
 			
 			return new CalculationResult(difference, result);
 		}
 		
-		private static function convertToString():void
-		{
-			
-		}
-		
-		
-		public static function convertToNumber(text:String,precision:Number = 0.01):Number
+		private static function ceilNumber(variable:Number,precision:Number = 0.01):Number
 		{
 			var radix:Number = 1 / precision; //default = 100
-			return Math.ceil(Number(text) * radix) / radix;
+			return Math.ceil(variable * radix) / radix;
 		}
 		
 		

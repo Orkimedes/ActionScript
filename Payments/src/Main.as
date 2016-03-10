@@ -71,14 +71,9 @@ package
 		private var inputEl1:Number;
 		
 		public function Main():void 
-		{			
-			addEventListener(MouseEvent.CLICK, totalSum);
-			
+		{
 			createTextFields();
 			createButtons();
-			
-			
-			
 		}
 		
 		private function createTextFields():void 
@@ -148,29 +143,14 @@ package
 		
 		private function calculateElectricity(event:MouseEvent):void
 		{
-			var result:Number;
-			var a:Number = Number(inputElectricityPrevious.text);
-			var b:Number = Number(inputElectricityCurrent.text);
-			var difference:Number = Number(b - a);
-			var LOWPRICE:Number = .57;
-			var MIDPRICE:Number = .99;
-			var LIMIT:Number = 100;
+			var previous:Number = Number(inputElectricityPrevious.text);
+			var current:Number = Number(inputElectricityCurrent.text);
 			
-			if (difference > LIMIT)
-			{
-				result = LOWPRICE * LIMIT + (difference - LIMIT) * MIDPRICE;
-			}
-			else 
-			{
-				result = (difference) * LOWPRICE;
-			}
-			result = getNumericValue(result);
-			outputElectricityCost.text = String(result);
-			outputElectricityDifference.text = String(difference);
+			var a:CalculationResult = Mathematics.calculateElectricity(previous, current);
+			outputElectricityCost.text = String(a.cost);
+			outputElectricityDifference.text = String(a.dif);
 			
-			var test:CalculationResult= Mathematics.calculateElectricity(inputElectricityPrevious.text, inputElectricityCurrent.text);
-			trace (test.cost);
-			trace (test.dif);
+			updateTotalValue();
 		}
 		
 		private function calculateWater(event:MouseEvent):void
@@ -209,7 +189,7 @@ package
 			outputGasDifference.text = String(difference);
 		}
 		
-		private function totalSum(event:MouseEvent):void
+		private function updateTotalValue():void
 		{
 			var result:Number = Number(outputGasCost.text) + Number(outputElectricityCost.text) + Number(outputWaterCost.text);
 			outputTotalSum.text = String(result);
