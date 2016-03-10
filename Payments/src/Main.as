@@ -145,8 +145,8 @@ package
 		{
 			var previous:Number = Number(inputElectricityPrevious.text);
 			var current:Number = Number(inputElectricityCurrent.text);
-			
 			var a:CalculationResult = Mathematics.calculateElectricity(previous, current);
+			
 			outputElectricityCost.text = String(a.cost);
 			outputElectricityDifference.text = String(a.dif);
 			
@@ -155,51 +155,36 @@ package
 		
 		private function calculateWater(event:MouseEvent):void
 		{
-			var a:Number = Number(inputWaterPrevious.text);
-			var b:Number = Number(inputWaterCurrent.text);
-			var difference:Number = Number(b - a);
-			var PRICE:Number = 11.60;
-			var result:Number = Number(PRICE * difference);
-			result = getNumericValue(result);
+			var previous:Number = Number(inputWaterPrevious.text);
+			var current:Number = Number(inputWaterCurrent.text);
+			var a:CalculationResult = Mathematics.calculateWater(previous, current);
 			
-			outputWaterCost.text = String(result);
-			outputWaterDifference.text = String(difference);
+			outputWaterCost.text = String(a.cost);
+			outputWaterDifference.text = String(a.dif);
+			
+			updateTotalValue();
 		}
-				
+		
 		private function calculateGas(event:MouseEvent):void
 		{
-			var result:Number;
-			var a:Number = Number(inputGasPrevious.text);
-			var b:Number = Number(inputGasCurrent.text);
-			var difference:Number = Number(b - a);
-			var LOWPRICE:Number = 3.6;
-			var MIDPRICE:Number = 7.188
-			var LIMIT:Number = 200
+			var previous:Number = Number(inputGasPrevious.text);
+			var current:Number = Number(inputGasCurrent.text);
+			var a:CalculationResult = Mathematics.calculateGas(previous, current);
 			
-			if (difference > LIMIT)
-			{
-				result = LOWPRICE * LIMIT + (difference - LIMIT) * MIDPRICE;
-			}
-			else 
-			{
-				result = (difference) * LOWPRICE;
-			}
-			result = getNumericValue(result);
-			outputGasCost.text = String(result);
-			outputGasDifference.text = String(difference);
+			outputGasCost.text = String(a.cost);
+			outputGasDifference.text = String(a.dif);
+			
+			updateTotalValue();
 		}
 		
 		private function updateTotalValue():void
 		{
 			var result:Number = Number(outputGasCost.text) + Number(outputElectricityCost.text) + Number(outputWaterCost.text);
+			trace (result);
+			result = Mathematics.ceilNumber(result);
 			outputTotalSum.text = String(result);
 		}
 		
-		public function getNumericValue(text:Number,precision:Number = 0.01):Number
-		{
-			var radix:Number = 1 / precision; //default = 100
-			return Math.ceil(Number(text) * radix) / radix;
-		}
 		
 		public static const points:Vector.<Point> = new <Point>[
 			new Point(startPointX, startPointY),
