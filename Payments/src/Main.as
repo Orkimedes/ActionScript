@@ -8,6 +8,7 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	import text.CustomTextField;
+	import text.LabelTextField;
 	
 	[SWF(width="800", height="600")]
 	public class Main extends Sprite 
@@ -67,8 +68,8 @@ package
 		private var outputGasDifference          :CustomTextField;
 		private var outputTotalSum               :CustomTextField;
 		private var testField                    :CustomTextField;
+		private var labelTest:LabelTextField;
 		
-		private var inputEl1:Number;
 		
 		public function Main():void 
 		{
@@ -110,6 +111,9 @@ package
 			addChild(outputGasDifference);
 			addChild(outputTotalSum);
 			addChild(testField);
+			//
+			labelTest = new LabelTextField('test', getCoord(5, 5));
+			addChild (labelTest);
 		}
 		
 		private function createButtons():void 
