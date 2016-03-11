@@ -13,7 +13,6 @@ package text
 		
 		public function LabelTextField(text:String,coords:Point) 
 		{
-			this.text = text;
 			this.x = coords.x;
 			this.y = coords.y;
 			myTextFormat.align = "center";
@@ -22,6 +21,8 @@ package text
 			myTextFormat.color = 0xe5e5e5;
 			myTextFormat.leading = 20;
 			defaultTextFormat = myTextFormat;
+			this.text = text;
+			
 		}
 		
 	}

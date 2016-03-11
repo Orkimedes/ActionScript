@@ -45,13 +45,3 @@ package text
 
 }
 
-
-/*
- var obj:CustomTextField
- obj.param = 100;
- obj.param2 = 100;
-
- 
- if(obj.isPopup)
- 
-*/
