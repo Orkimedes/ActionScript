@@ -9,6 +9,7 @@ package
 	import flash.text.TextFieldType;
 	import text.CustomTextField;
 	import text.LabelTextField;
+	import text.TextBlock;
 	
 	[SWF(width="800", height="600")]
 	public class Main extends Sprite 
@@ -69,6 +70,7 @@ package
 		private var outputTotalSum               :CustomTextField;
 		private var testField                    :CustomTextField;
 		private var labelTest:LabelTextField;
+		private var IEPrevious:TextBlock;
 		
 		
 		public function Main():void 
@@ -114,6 +116,9 @@ package
 			//
 			labelTest = new LabelTextField('test', getCoord(5, 5));
 			addChild (labelTest);
+			//
+			IEPrevious = new TextBlock(getCoord(0, 4), standardWidth, standardHeight, 'firstTB');
+			addChild(IEPrevious);
 		}
 		
 		private function createButtons():void 
